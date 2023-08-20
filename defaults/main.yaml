@@ -1,13 +1,11 @@
 ---
-service_name: sshd
+service_name: ""
 
-service_pkgs:
-  name:
-    - openssh-server
+service_pkgs: []
 
-service_firewalld:
-  zones:
-    - name: public
-      services:
-        - ssh
-      ports: []
+service_firewalld: []
+#  zones:
+#    - name: public
+#      services:
+#        - ssh
+#      ports: []
