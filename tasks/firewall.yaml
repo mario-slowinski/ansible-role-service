@@ -1,4 +1,19 @@
 ---
+- name: "Configure services in firewall"
+  tags: service.firewall.config
+  ansible.builtin.template:
+    src: "firewall/service.ji2"
+    dest: "{{ service_firewall_config['path'] }}/{{ item['name'] }}.xml"
+    owner: "{{ service_firewall_config['owner'] }}"
+    group: "{{ service_firewall_config['group'] }}"
+    mode: "{{ service_firewall_config['mode'] }}"
+    setype: "{{ service_firewall_config['setype'] }}"
+  loop: "{{ service_firewalld['services'] | default([]) }}"
+  loop_control:
+    label: "{{ item['name'] }} }}"
+  become: true
+  notify: "Reload firewall"
+
 - name: "Allow services in firewall"
   tags: service.firewall.services
   ansible.posix.firewalld:

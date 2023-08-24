@@ -6,3 +6,7 @@
     enabled: true
   become: true
   when: test_dir is not defined
+
+- name: "Reload firewall"
+  ansible.builtin.command: firewall-cmd --reload
+  become: true

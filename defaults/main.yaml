@@ -9,3 +9,9 @@ service_firewalld: []
 #      services:
 #        - ssh
 #      ports: []
+#  services:
+#    - name: nbu
+#      short: netbackup
+#      description: Veritas NetBackup
+#      ports:
+#        - "1556/tcp"
