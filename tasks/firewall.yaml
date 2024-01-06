@@ -14,6 +14,10 @@
   become: true
   notify: "Reload firewall"
 
+- name: "Flush handlers"
+  tags: service.firewall.flush
+  ansible.builtin.meta: flush_handlers
+
 - name: "Allow services in firewall"
   tags: service.firewall.services
   ansible.posix.firewalld:
