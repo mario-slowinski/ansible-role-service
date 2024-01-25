@@ -10,7 +10,7 @@
     setype: "{{ service_firewall_config['setype'] }}"
   loop: "{{ service_firewalld['services'] | default([]) }}"
   loop_control:
-    label: "{{ item['name'] }} }}"
+    label: "{{ item['name'] }}"
   become: true
   notify: "Reload firewall"
 
