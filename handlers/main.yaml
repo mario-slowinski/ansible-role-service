@@ -4,9 +4,11 @@
     name: "{{ service_name }}"
     state: restarted
     enabled: true
+  changed_when: true
   become: true
   when: test_dir is not defined
 
 - name: "Reload firewall"
   ansible.builtin.command: firewall-cmd --reload
+  changed_when: true
   become: true
