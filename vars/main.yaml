@@ -3,5 +3,5 @@ service_firewall_config:
   path: /etc/firewalld/services
   owner: root
   group: root
-  mode: 0o644
+  mode: '0o644'
   setype: etc_t
